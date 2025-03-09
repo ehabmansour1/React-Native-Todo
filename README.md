@@ -1,97 +1,106 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native To-Do App
 
-# Getting Started
+![Project Screenshot](https://raw.githubusercontent.com/ehabmansour1/React-Native-Todo/main/run.gif)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A simple and intuitive To-Do app built with React Native. This app allows users to create, edit, delete, and mark tasks as completed. Tasks are saved locally using AsyncStorage, and if no tasks are available, the app fetches sample tasks from an external API.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Add Tasks**: Create new tasks with a title and optional details.
+- **Edit Tasks**: Update existing tasks.
+- **Delete Tasks**: Remove tasks you no longer need.
+- **Mark as Completed**: Toggle tasks between completed and incomplete states.
+- **Persistent Storage**: Tasks are saved locally using AsyncStorage, so they persist even after the app is closed.
+- **API Integration**: If no tasks are available locally, the app fetches sample tasks from [DummyJSON API](https://dummyjson.com/todos).
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## Technologies Used
+
+- **React Native**: For building the cross-platform mobile app.
+- **AsyncStorage**: For local storage to persist tasks.
+- **DummyJSON API**: For fetching sample tasks when no local data is available.
+- **React Navigation**: For navigation (if applicable).
+- **JavaScript/TypeScript**: For the app logic.
+
+---
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ehabmansour1/React-Native-Todo.git
+   cd react-native-todo-app
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the app**:
+
+   For Android:
+
+   ```bash
+   npx react-native run-android
+   ```
+
+   For iOS:
+
+   ```bash
+   npx react-native run-ios
+   ```
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── AddTodoModal.jsx # Modal for adding tasks
+│   ├── EditTodoModal.jsx# Modal for editing tasks
+│   └── TodoItem.jsx     # Component for individual tasks
+├── controllers/         # Business logic
+│   └── TodoController.js# Handles task operations
+├── models/              # Data models
+│   └── TodoModel.js     # Task model
+├── storage/             # Storage logic
+│   └── storage.js       # Handles AsyncStorage operations
+├── views/               # Screens
+│   └── TodoScreen.js    # Main screen for displaying tasks
+├── App.jsx              # Main app component
+└── index.js             # Entry point
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## How It Works
 
-### Android
+### Local Storage:
 
-```sh
-# Using npm
-npm run android
+- Tasks are saved locally using AsyncStorage. When the app is launched, it checks for existing tasks in AsyncStorage.
+- If no tasks are found, the app fetches sample tasks from the DummyJSON API.
 
-# OR using Yarn
-yarn android
-```
+### Task Management:
 
-### iOS
+- Users can add, edit, delete, and toggle tasks.
+- All changes are saved to AsyncStorage in real-time.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### API Integration:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+- The app uses the DummyJSON API to fetch sample tasks when no local data is available.
+- The API provides a list of tasks with titles and completion statuses.
 
-```sh
-bundle install
-```
+---
 
-Then, and every time you update your native dependencies, run:
+## Acknowledgments
 
-```sh
-bundle exec pod install
-```
+- **DummyJSON** for providing the sample tasks API.
+- **React Native** for the framework.
+- **AsyncStorage** for local storage.
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
